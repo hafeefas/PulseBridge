@@ -1,0 +1,1191 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 20px;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+:root {
+  --primary-green: #0E563B;
+  --background-color: #F8FAFC;
+  --text-primary: #1A2B3B;
+  --text-secondary: #4A5B6B;
+  --border-radius: 6px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --max-width: 1200px;
+  --header-height: 56px;
+  --section-spacing: 64px;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.05),
+                 0 12px 24px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-primary);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.app {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation Styles */
+.top-nav {
+  background-color: white;
+  color: var(--text-primary);
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.nav-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 3rem;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+}
+
+.logo-text h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.logo-text p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: all 0.2s;
+  letter-spacing: -0.2px;
+}
+
+.nav-link:hover {
+  color: var(--primary-green);
+  background-color: rgba(14, 86, 59, 0.05);
+}
+
+.nav-link.active {
+  color: var(--primary-green);
+  background-color: rgba(14, 86, 59, 0.08);
+  font-weight: 600;
+}
+
+.header-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.375rem;
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s;
+}
+
+.icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hero Section */
+.hero-section {
+  background-color: var(--primary-green);
+  padding: calc(var(--header-height) + 1rem) 1.5rem 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 8px 10px 32px rgba(80, 97, 17, 0.2);
+  color: white;
+}
+
+.hero-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  opacity: 0.9;
+  margin-bottom: 4rem;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+  color: white;
+  text-align: center;
+}
+
+.stat-item h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #b9b143
+}
+
+.stat-item p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+}
+
+/* Section Containers */
+.section-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Features Section */
+.features-section {
+  padding: var(--section-spacing) 0;
+  background-color: white;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.feature-item {
+  background: var(--background-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 1.5rem;
+}
+
+.feature-item h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.feature-item p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Plans Section */
+.plans-section {
+  padding: var(--section-spacing) 0;
+  background-color: var(--background-color);
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.plan-card {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.plan-card.featured {
+  border: 2px solid var(--primary-green);
+  transform: scale(1.05);
+}
+
+.plan-card.featured:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.plan-header {
+  margin-bottom: 2rem;
+}
+
+.plan-header h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.plan-price {
+  font-size: 2rem;
+  color: var(--primary-green);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.plan-header p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.plan-features {
+  margin-bottom: 2rem;
+}
+
+.plan-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.plan-features li {
+  padding: 0.75rem 0;
+  color: var(--text-secondary);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.plan-features li:last-child {
+  border-bottom: none;
+}
+
+.plan-button {
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+.plan-button:hover {
+  background-color: #157a3e;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .features-grid,
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .stat-item h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-content {
+    padding: 0 1.5rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .nav-links {
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+    padding: 0.375rem 0.75rem;
+  }
+
+  .hero-section {
+    padding: calc(var(--header-height) + 2rem) 1rem 4rem;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .section-container {
+    padding: 0 1rem;
+  }
+
+  .features-grid,
+  .plans-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .plan-card.featured {
+    transform: none;
+  }
+
+  .plan-card.featured:hover {
+    transform: translateY(-10px);
+  }
+}
+
+/* Feature Icons Colors */
+.blue { background-color: #E8F1FF; }
+.purple { background-color: #F3E8FF; }
+.orange { background-color: #FFF1E8; }
+.green { background-color: #E8FFE9; }
+.yellow { background-color: #FFF9E8; }
+.teal { background-color: #E8FFF9; }
+
+/* Meetings Section */
+.meetings-section {
+  max-width: 1200px;
+  padding: 3rem;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.meetings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.meetings-header h2 {
+  font-size: 2rem;
+  color: var(--text-primary);
+}
+
+.meetings-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: var(--background-color);
+  border-radius: var(--border-radius);
+}
+
+.stat-card {
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.stat-card h3 {
+  font-size: 2.5rem;
+  color: var(--primary-green);
+  margin-bottom: 0.75rem;
+}
+
+.stat-card p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.new-meeting-btn {
+  width: auto;
+  padding: 1rem 2rem;
+  margin: 0 auto 3rem;
+  max-width: 300px;
+  background: var(--primary-green);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.new-meeting-btn:hover {
+  background-color: #157a3e;
+}
+
+.meetings-nav {
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.meetings-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+  background: var(--background-color);
+  border-radius: var(--border-radius);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.meetings-nav button {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--border-radius);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.meetings-nav button:hover {
+  color: var(--primary-green);
+}
+
+.meetings-nav button.active {
+  background: white;
+  color: var(--primary-green);
+  box-shadow: var(--shadow);
+}
+
+.meetings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.meeting-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem;
+  background: white;
+  border-radius: var(--border-radius);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #eee;
+}
+
+.meeting-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.meeting-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.meeting-info h3 {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.meeting-tag {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+.meeting-tag.in-person {
+  background: #E8FFF1;
+  color: #0C6B3D;
+}
+
+.meeting-tag.virtual {
+  background: #E8F1FF;
+  color: #0C3D6B;
+}
+
+.meeting-tag.hybrid {
+  background: #F3E8FF;
+  color: #6B0C6B;
+}
+
+.meeting-details {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.meeting-details time,
+.meeting-details address,
+.meeting-details p {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.meeting-details time span,
+.meeting-details address span,
+.meeting-details p span {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.view-details-btn {
+  background: none;
+  border: 1.5px solid var(--primary-green);
+  color: var(--primary-green);
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--border-radius);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  margin-left: 2rem;
+  height: fit-content;
+}
+
+.view-details-btn:hover {
+  background: var(--primary-green);
+  color: white;
+}
+
+/* Update page container for better spacing */
+.page-container {
+  padding-top: var(--header-height);
+  min-height: 100vh;
+  background: var(--background-color);
+}
+
+@media (max-width: 1024px) {
+  .meetings-section {
+    margin: 2rem;
+    padding: 2rem;
+  }
+
+  .meetings-stats {
+    padding: 1.5rem;
+  }
+
+  .stat-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .meetings-section {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .meetings-stats {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .meetings-nav ul {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+
+  .meeting-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .view-details-btn {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+/* Finance Page Styles */
+.payments-section {
+  background: var(--background-color);
+  min-height: calc(100vh - var(--header-height));
+}
+
+.payments-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: var(--card-shadow);
+}
+
+.payments-header {
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+.payments-header h1 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.payments-header p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.finance-stats-container {
+  margin-bottom: 4rem;
+}
+
+.finance-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  background: var(--primary-green);
+  padding: 2.5rem;
+  border-radius: 20px;
+  color: white;
+}
+
+.finance-stats .stat-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.finance-stats .stat-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.finance-stats .stat-card h3 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.finance-stats .stat-card p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.payment-methods {
+  margin: 4rem 0;
+}
+
+.payment-methods h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.payment-methods-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.payment-method-card {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.payment-method-card:hover {
+  border-color: var(--primary-green);
+  background: rgba(14, 86, 59, 0.02);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.payment-method-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  text-align: left;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+.payment-method-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.payment-method-info h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 0.375rem;
+  font-weight: 500;
+}
+
+.payment-method-info p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.payment-method-fee {
+  text-align: right;
+  padding-left: 2rem;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.payment-method-fee span {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.payment-method-fee strong {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.recent-transactions {
+  margin-top: 4rem;
+  text-align: left;
+
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.text-button {
+  color: var(--primary-green);
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.text-button:hover {
+  background: rgba(14, 86, 59, 0.05);
+}
+
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.transaction-card {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.transaction-card:hover {
+  border-color: var(--primary-green);
+  background: rgba(14, 86, 59, 0.02);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.transaction-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+.transaction-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-details h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 0.375rem;
+  font-weight: 500;
+}
+
+.transaction-id {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 0.375rem;
+}
+
+.transaction-details time {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  display: block;
+}
+
+.transaction-amount {
+  text-align: right;
+  padding-left: 2rem;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.amount {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.status {
+  display: inline-block;
+  padding: 0.375rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.status.success {
+  background: rgba(14, 86, 59, 0.08);
+  color: var(--primary-green);
+}
+
+.status.pending {
+  background: rgba(234, 179, 8, 0.08);
+  color: #B45309;
+}
+
+@media (max-width: 1024px) {
+  .payments-container {
+    padding: 2rem;
+  }
+
+  .finance-stats {
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+
+  .finance-stats .stat-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .payments-section {
+    padding: 1rem;
+  }
+
+  .payments-container {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .finance-stats {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  .payment-method-card,
+  .transaction-card {
+    padding: 1.25rem;
+  }
+
+  .payment-method-fee,
+  .transaction-amount {
+    padding-left: 1.5rem;
+  }
+}
+
+/* Add these base styles at the top */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Add back the essential layout styles */
+.payment-method-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.payment-method-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.payment-method-icon svg {
+  color: white;
+}
+
+.transaction-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.transaction-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.transaction-icon svg {
+  color: white;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .payment-method-card,
+  .transaction-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .payment-method-icon,
+  .transaction-icon {
+    margin: 0 auto 0.75rem;
+  }
+
+  .payment-method-fee {
+    margin-top: 0.75rem;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .transaction-info {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .transaction-amount {
+    text-align: center;
+  }
+
+  .finance-stats {
+    grid-template-columns: 1fr;
+  }
+}
