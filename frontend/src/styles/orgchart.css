@@ -1,0 +1,208 @@
+.org-chart-page {
+  padding: 2rem;
+  background: #f8f9fa;
+  min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+}
+
+.org-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+}
+
+.org-header h1 {
+  font-size: 2rem;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.find-people-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.find-people-btn:hover {
+  border-color: #2C5F2D;
+  color: #2C5F2D;
+}
+
+.search-icon {
+  font-size: 1.25rem;
+}
+
+.org-container {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin: 0 2rem;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.org-tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  width: fit-content;
+  padding: 1rem;
+  position: relative;
+}
+
+/* Connecting lines */
+.org-level {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.org-level::before {
+  content: '';
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 1.5rem;
+  background: #ddd;
+}
+
+.org-level:first-child::before {
+  display: none;
+}
+
+.org-branch {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.org-branch::before {
+  content: '';
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 1.5rem;
+  background: #ddd;
+}
+
+/* Card styles */
+.org-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  width: 260px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.org-card:hover {
+  border-color: #2C5F2D;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.org-avatar {
+  width: 48px;
+  height: 48px;
+  background: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #666;
+}
+
+.org-info {
+  flex: 1;
+}
+
+.org-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.org-info p {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0;
+}
+
+.org-info .division {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 0.25rem;
+}
+
+/* Level-specific styles */
+.president-level {
+  margin-bottom: 1rem;
+}
+
+.executives-level {
+  margin-bottom: 1rem;
+}
+
+.directors-level {
+  margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .org-container {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .org-tree {
+    gap: 2.5rem;
+  }
+  
+  .org-card {
+    width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .org-chart-page {
+    padding: 1rem;
+  }
+  
+  .org-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .find-people-btn {
+    width: 100%;
+    justify-content: center;
+  }
+} 

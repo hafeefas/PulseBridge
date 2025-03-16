@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
 import Settings from './pages/Settings'
 import Calendar from './pages/Calendar'
+import OrgChart from './pages/OrgChart'
 
 // Protected Route wrapper component
 function ProtectedRoute({ children, isLoggedIn }: { children: React.ReactNode, isLoggedIn: boolean }) {
@@ -130,6 +131,11 @@ function App() {
             <Route path="/calendar" element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
                 <Calendar />
+              </ProtectedRoute>
+            } />
+            <Route path="/people" element={
+              <ProtectedRoute isLoggedIn={isLoggedIn}>
+                <OrgChart />
               </ProtectedRoute>
             } />
             <Route path="/" element={<Home />} />
