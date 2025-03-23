@@ -1,5 +1,7 @@
 .calendar-page {
   padding: 2rem;
+  width: 900px;
+  margin: 0;
 }
 
 .calendar-layout {

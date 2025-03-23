@@ -9,6 +9,10 @@ import Home from './pages/Home'
 import Settings from './pages/Settings'
 import Calendar from './pages/Calendar'
 import OrgChart from './pages/OrgChart'
+import Help from './pages/Help'
+import Benefits from './pages/Benefits'
+import Policy from './pages/Policy'
+import Footer from './components/Footer'
 
 // Protected Route wrapper component
 function ProtectedRoute({ children, isLoggedIn }: { children: React.ReactNode, isLoggedIn: boolean }) {
@@ -21,6 +25,7 @@ function ProtectedRoute({ children, isLoggedIn }: { children: React.ReactNode, i
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const handleLogin = () => {
     setIsLoggedIn(true);
@@ -28,6 +33,10 @@ function App() {
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+  };
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
   };
 
   return (
@@ -39,20 +48,32 @@ function App() {
               <Link to="/" className="logo">PulseBridge</Link>
               {!isLoggedIn && (
                 <div className="nav-links">
-                  <Link to="/" className="nav-link">Home</Link>
                   <Link to="/dashboard" className="nav-link">Dashboard</Link>
                   <Link to="/community" className="nav-link">Community</Link>
                   <Link to="/finance" className="nav-link">Finance</Link>
+                  <Link to="/benefits" className="nav-link">Benefits</Link>
                 </div>
               )}
             </div>
             
             {isLoggedIn ? (
-              <div className="user-menu">
-                <button className="notifications-btn">🔔</button>
-                <Link to="/settings" className="settings-btn">⚙️</Link>
-                <button onClick={handleLogout} className="logout-btn">Logout</button>
+              <>
+              <div className="nav-content">
+                <div className="nav-left">
+
+`              <div className="nav-links">
+                <Link to="/dashboard" className="nav-link">Dashboard</Link>
+                <Link to="/community" className="nav-link">Community</Link>
+                <Link to="/finance" className="nav-link">Finance</Link>
+                <Link to="/benefits" className="nav-link">Benefits</Link>
               </div>
+              </div> </div> 
+              <div className="user-menu">
+                  <button className="notifications-btn">🔔</button>
+                  <Link to="/settings" className="settings-btn">⚙️</Link>
+                  <button onClick={handleLogout} className="logout-btn">Logout</button>
+                </div>
+`              </>
             ) : (
               <div className="auth-buttons">
                 <Link to="/login" className="nav-link login-nav-btn">Login</Link>
@@ -63,49 +84,52 @@ function App() {
         </nav>
 
         {isLoggedIn && (
-          <div className="main-sidebar">
+          <div className={`main-sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
+            <button onClick={toggleSidebar} className="sidebar-toggle-middle">
+              {isSidebarOpen ? '◀' : '▶'}
+            </button>
             <nav className="sidebar-nav">
               <Link to="/people" className="sidebar-link">
                 <span className="sidebar-icon">👥</span>
-                People
+                <span className="sidebar-text">People</span>
               </Link>
               <Link to="/inbox" className="sidebar-link">
                 <span className="sidebar-icon">📥</span>
-                Inbox
+                <span className="sidebar-text">Inbox</span>
               </Link>
               <Link to="/calendar" className="sidebar-link">
                 <span className="sidebar-icon">📅</span>
-                Calendar
+                <span className="sidebar-text">Calendar</span>
               </Link>
-              <Link to="/checking-account" className="sidebar-link">
+              {/* <Link to="/checking-account" className="sidebar-link">
                 <span className="sidebar-icon">🏦</span>
                 Checking Account
-              </Link>
+              </Link> */}
               <Link to="/forms" className="sidebar-link">
                 <span className="sidebar-icon">📄</span>
-                Forms and Policies
+                <span className="sidebar-text">Forms and Policies</span>
               </Link>
               <Link to="/funds" className="sidebar-link">
                 <span className="sidebar-icon">💰</span>
-                Total Funds
+                <span className="sidebar-text">Total Funds</span>
               </Link>
-              <Link to="/benefits" className="sidebar-link">
+              {/* <Link to="/benefits" className="sidebar-link">
                 <span className="sidebar-icon">✨</span>
                 Benefits
-              </Link>
+              </Link> */}
               <Link to="/settings" className="sidebar-link">
                 <span className="sidebar-icon">⚙️</span>
-                Settings
+                <span className="sidebar-text">Settings</span>
               </Link>
               <Link to="/help" className="sidebar-link">
                 <span className="sidebar-icon">❓</span>
-                Help
+                <span className="sidebar-text">Help</span>
               </Link>
             </nav>
           </div>
         )}
 
-        <div className={isLoggedIn ? 'main-content with-sidebar' : 'main-content'}>
+        <div className={`main-content ${isLoggedIn ? (isSidebarOpen ? 'with-sidebar' : 'with-sidebar-closed') : ''}`}>
           <Routes>
             <Route path="/login" element={isLoggedIn ? <Navigate to="/dashboard" /> : <Login onLogin={handleLogin} />} />
             <Route path="/dashboard" element={
@@ -138,9 +162,24 @@ function App() {
                 <OrgChart />
               </ProtectedRoute>
             } />
+            <Route path="/benefits" element={
+              <Benefits />
+            } />
+            <Route path="/forms" element={
+              <ProtectedRoute isLoggedIn={isLoggedIn}>
+                <Policy />
+              </ProtectedRoute>
+            } />
+            <Route path="/help" element={
+              <ProtectedRoute isLoggedIn={isLoggedIn}>
+                <Help />
+              </ProtectedRoute>
+            } />
             <Route path="/" element={<Home />} />
           </Routes>
         </div>
+
+        {!isLoggedIn && <Footer />}
       </div>
     </Router>
   )

@@ -1,0 +1,142 @@
+.footer {
+  background-color: white;
+  color: #333;
+  padding: 4rem 2rem 2rem;
+  margin-top: 4rem;
+  border-top: 1px solid #eee;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-section h3 {
+  color: #2C5F2D;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+
+.footer-section h4 {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+.footer-section p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-section ul li a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #2C5F2D;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  background: #f5f5f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.social-icon:hover {
+  background: #2C5F2D;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.contact-info li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+}
+
+.footer-bottom {
+  /* max-width: 1200px; */
+  /* margin: 0 auto; */
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bottom p {
+  color: #666;
+  margin: 0;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-bottom-links a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-bottom-links a:hover {
+  color: #2C5F2D;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .footer-bottom-links {
+    justify-content: center;
+    gap: 1rem;
+  }
+} 
