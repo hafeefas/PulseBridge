@@ -1,0 +1,279 @@
+.benefits-container {
+  max-width: 1200px;
+  padding: 2rem;
+}
+
+.benefits-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.benefits-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.benefits-header .subtitle {
+  font-size: 1.25rem;
+  color: #666;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.benefit-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  background: #f8f9fa;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-content {
+  flex: 1;
+}
+
+.benefit-content h3 {
+  font-size: 1.25rem;
+  color: #333;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.benefit-content p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Call to Action Section */
+.cta-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #f8f9fa;
+  border-radius: 16px;
+  margin-top: 2rem;
+}
+
+.cta-section h2 {
+  font-size: 2.25rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.cta-button {
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cta-button.primary {
+  background: #2C5F2D;
+  color: white;
+}
+
+.cta-button.primary:hover {
+  background: #234C24;
+  transform: translateY(-2px);
+}
+
+.cta-button.secondary {
+  background: white;
+  color: #2C5F2D;
+  border: 2px solid #2C5F2D;
+}
+
+.cta-button.secondary:hover {
+  background: #f0f7f0;
+  transform: translateY(-2px);
+}
+
+/* Additional Benefits Section */
+.additional-benefits-section {
+  margin-top: 5rem;
+  padding: 2rem;
+}
+
+.additional-benefits-section h2 {
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.additional-benefits {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.additional-benefit-item {
+  flex: 1;
+  min-width: 300px;
+  max-width: 350px;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+
+.additional-benefit-item:hover {
+  transform: translateY(-5px);
+}
+
+.additional-benefit-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem;
+  background: #f5f9f5;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.additional-benefit-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.additional-benefit-content h3 {
+  color: #2C5F2D;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.additional-benefit-content p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .benefits-container {
+    padding: 1rem;
+    margin-top: 60px;
+  }
+
+  .benefits-header h1 {
+    font-size: 2rem;
+  }
+
+  .benefits-header .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .benefit-card {
+    padding: 1.5rem;
+  }
+
+  .benefit-icon {
+    font-size: 2rem;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+  }
+
+  .benefit-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .cta-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.75rem;
+  }
+
+  .cta-section p {
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .additional-benefits-section {
+    padding: 2rem 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .additional-benefits-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .additional-benefit-item {
+    min-width: 100%;
+    padding: 1.25rem;
+  }
+
+  .additional-benefit-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.75rem;
+  }
+} 
