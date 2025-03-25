@@ -48,6 +48,7 @@ const Settings = () => {
                   <input type="email" defaultValue="RonAlbert@aol.com" className="form-input" />
                 </div>
               </div>
+              <button className="save-btn" style={{marginTop:"20px"}}>Update Profile</button>
             </div>
           )}
 
