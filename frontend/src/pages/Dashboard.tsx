@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/dashboard.css'
 
 const Dashboard: React.FC = () => {
   // Roster data with updated names and better images
@@ -7,28 +8,28 @@ const Dashboard: React.FC = () => {
       id: 1,
       name: "Mamadou Diallo",
       role: "President",
-      image: "https://ui-avatars.com/api/?name=Mamadou+Diallo&background=0E563B&color=fff&size=150",
+      image: `https://api.dicebear.com/7.x/personas/svg?seed=1&backgroundColor=b6e3f4,c0aede,d1d4f9&backgroundType=gradientLinear&size=96`,
       status: "online"
     },
     {
       id: 2,
       name: "Fatoumata Camara",
       role: "Vice President",
-      image: "https://ui-avatars.com/api/?name=Fatoumata+Camara&background=2563EB&color=fff&size=150",
+      image: `https://api.dicebear.com/7.x/personas/svg?seed=2&backgroundColor=b6e3f4,c0aede,d1d4f9&backgroundType=gradientLinear&size=96`,
       status: "online"
     },
     {
       id: 3,
       name: "Ibrahima Touré",
       role: "Secretary",
-      image: "https://ui-avatars.com/api/?name=Ibrahima+Toure&background=7C3AED&color=fff&size=150",
+      image: `https://api.dicebear.com/7.x/personas/svg?seed=3&backgroundColor=b6e3f4,c0aede,d1d4f9&backgroundType=gradientLinear&size=96`,
       status: "busy"
     },
     {
       id: 4,
       name: "Aissatou Baldé",
       role: "Treasurer",
-      image: "https://ui-avatars.com/api/?name=Aissatou+Balde&background=DB2777&color=fff&size=150",
+      image: `https://api.dicebear.com/7.x/personas/svg?seed=4&backgroundColor=b6e3f4,c0aede,d1d4f9&backgroundType=gradientLinear&size=96`,
       status: "online"
     }
   ];
@@ -38,21 +39,21 @@ const Dashboard: React.FC = () => {
       id: 5,
       name: "Lamine Condé",
       role: "Events Committee",
-      image: "https://ui-avatars.com/api/?name=Lamine+Conde&background=059669&color=fff&size=150",
+      image: `https://api.dicebear.com/7.x/personas/svg?seed=5&backgroundColor=b6e3f4,c0aede,d1d4f9&backgroundType=gradientLinear&size=96`,
       status: "online"
     },
     {
       id: 6,
       name: "Mariam Sylla",
       role: "Finance Committee",
-      image: "https://ui-avatars.com/api/?name=Mariam+Sylla&background=9333EA&color=fff&size=150",
+      image: `https://api.dicebear.com/7.x/personas/svg?seed=6&backgroundColor=b6e3f4,c0aede,d1d4f9&backgroundType=gradientLinear&size=96`,
       status: "offline"
     },
     {
       id: 7,
       name: "Ousmane Barry",
       role: "Membership Committee",
-      image: "https://ui-avatars.com/api/?name=Ousmane+Barry&background=DC2626&color=fff&size=150",
+      image: `https://api.dicebear.com/7.x/personas/svg?seed=7&backgroundColor=b6e3f4,c0aede,d1d4f9&backgroundType=gradientLinear&size=96`,
       status: "busy"
     }
   ];
@@ -62,21 +63,21 @@ const Dashboard: React.FC = () => {
       id: 8,
       name: "Kadiatou Cissé",
       role: "Senior Member",
-      image: "https://ui-avatars.com/api/?name=Kadiatou+Cisse&background=2563EB&color=fff&size=150",
+      image: `https://api.dicebear.com/7.x/personas/svg?seed=8&backgroundColor=b6e3f4,c0aede,d1d4f9&backgroundType=gradientLinear&size=96`,
       status: "online"
     },
     {
       id: 9,
       name: "Sékou Kouyaté",
       role: "Events Coordinator",
-      image: "https://ui-avatars.com/api/?name=Sekou+Kouyate&background=0E563B&color=fff&size=150",
+      image: `https://api.dicebear.com/7.x/personas/svg?seed=9&backgroundColor=b6e3f4,c0aede,d1d4f9&backgroundType=gradientLinear&size=96`,
       status: "offline"
     },
     {
       id: 10,
       name: "Djenebou Diarra",
       role: "Community Liaison",
-      image: "https://ui-avatars.com/api/?name=Djenebou+Diarra&background=7C3AED&color=fff&size=150",
+      image: `https://api.dicebear.com/7.x/personas/svg?seed=10&backgroundColor=b6e3f4,c0aede,d1d4f9&backgroundType=gradientLinear&size=96`,
       status: "online"
     }
   ];

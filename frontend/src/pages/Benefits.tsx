@@ -1,5 +1,5 @@
 import React from 'react';
-import './Benefits.css';
+import '../styles/benefits.css';
 
 const Benefits: React.FC = () => {
   const benefits = [

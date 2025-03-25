@@ -8,24 +8,24 @@ const Finance: React.FC = () => {
         <div className="header-content">
           <h1>Financial Dashboard</h1>
           <div className="stats-overview">
-            <div className="stat-card">
-              <span className="stat-number">42</span>
+            <div className="stat-card2">
+              <span className="stat-number2">42/64</span>
               <span className="stat-label">Payments Received</span>
               <div className="progress-bar">
                 <div className="progress" style={{ width: '75%' }}></div>
               </div>
               <span className="stat-subtitle">Out of 56 members</span>
             </div>
-            <div className="stat-card">
-              <span className="stat-number">14</span>
+            <div className="stat-card2">
+              <span className="stat-number2">14</span>
               <span className="stat-label">Pending Payments</span>
               <div className="progress-bar">
                 <div className="progress warning" style={{ width: '25%' }}></div>
               </div>
               <span className="stat-subtitle">Verification in progress</span>
             </div>
-            <div className="stat-card">
-              <span className="stat-number">87%</span>
+            <div className="stat-card2">
+              <span className="stat-number2">87%</span>
               <span className="stat-label">Success Rate</span>
               <div className="progress-bar">
                 <div className="progress success" style={{ width: '87%' }}></div>

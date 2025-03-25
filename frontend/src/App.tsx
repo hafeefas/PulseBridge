@@ -12,6 +12,7 @@ import OrgChart from './pages/OrgChart'
 import Help from './pages/Help'
 import Benefits from './pages/Benefits'
 import Policy from './pages/Policy'
+import ChatHub from './pages/ChatHub'
 import Footer from './components/Footer'
 
 // Protected Route wrapper component
@@ -93,9 +94,9 @@ function App() {
                 <span className="sidebar-icon">👥</span>
                 <span className="sidebar-text">People</span>
               </Link>
-              <Link to="/inbox" className="sidebar-link">
-                <span className="sidebar-icon">📥</span>
-                <span className="sidebar-text">Inbox</span>
+              <Link to="/chat" className="sidebar-link">
+                <span className="sidebar-icon">💬</span>
+                <span className="sidebar-text">Chat</span>
               </Link>
               <Link to="/calendar" className="sidebar-link">
                 <span className="sidebar-icon">📅</span>
@@ -109,21 +110,17 @@ function App() {
                 <span className="sidebar-icon">📄</span>
                 <span className="sidebar-text">Forms and Policies</span>
               </Link>
-              <Link to="/funds" className="sidebar-link">
-                <span className="sidebar-icon">💰</span>
-                <span className="sidebar-text">Total Funds</span>
-              </Link>
               {/* <Link to="/benefits" className="sidebar-link">
                 <span className="sidebar-icon">✨</span>
                 Benefits
               </Link> */}
+              <Link to="/help" className="sidebar-link">
+                <span className="sidebar-icon">❓</span>
+                <span className="sidebar-text">Help and Contact</span>
+              </Link>
               <Link to="/settings" className="sidebar-link">
                 <span className="sidebar-icon">⚙️</span>
                 <span className="sidebar-text">Settings</span>
-              </Link>
-              <Link to="/help" className="sidebar-link">
-                <span className="sidebar-icon">❓</span>
-                <span className="sidebar-text">Help</span>
               </Link>
             </nav>
           </div>
@@ -173,6 +170,11 @@ function App() {
             <Route path="/help" element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
                 <Help />
+              </ProtectedRoute>
+            } />
+            <Route path="/chat" element={
+              <ProtectedRoute isLoggedIn={isLoggedIn}>
+                <ChatHub />
               </ProtectedRoute>
             } />
             <Route path="/" element={<Home />} />

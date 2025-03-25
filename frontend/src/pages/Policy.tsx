@@ -1,5 +1,5 @@
 import React from 'react';
-import './Policy.css';
+import '../styles/policy.css';
 
 const Policy: React.FC = () => {
   const formSections = [
