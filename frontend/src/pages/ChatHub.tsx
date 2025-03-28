@@ -1,153 +1,160 @@
 import React, { useState } from 'react';
-import '../styles/chatHub.css'
-
-interface Message {
-  id: number;
-  text: string;
-  sender: string;
-  timestamp: Date;
-}
+import '../styles/chatHub.css';
 
 interface User {
   id: number;
   name: string;
   role: string;
   avatar: string;
-  status: 'online' | 'offline' | 'busy';
+  status: 'online' | 'offline';
   lastMessage?: string;
+  lastMessageTime?: string;
 }
 
-interface ChatMessages {
-  [key: number]: Message[];
+interface Message {
+  id: number;
+  text: string;
+  sender: 'me' | 'other';
+  timestamp: Date;
 }
-
-const initialUsers: User[] = [
-  {
-    id: 1,
-    name: "Mamadou Diallo",
-    role: "Organization Lead",
-    avatar: `https://api.dicebear.com/7.x/personas/svg?seed=1&backgroundColor=b6e3f4,c0aede,d1d4f9&backgroundType=gradientLinear&size=96`,
-    status: "online",
-    lastMessage: "Thank you for the update!"
-  },
-  {
-    id: 2,
-    name: "Fatoumata Camara",
-    role: "Project Manager",
-    avatar: `https://api.dicebear.com/7.x/personas/svg?seed=2&backgroundColor=b6e3f4,c0aede,d1d4f9&backgroundType=gradientLinear&size=96`,
-    status: "online",
-    lastMessage: "When is the next meeting?"
-  },
-  {
-    id: 3,
-    name: "Ibrahim Sow",
-    role: "Finance Officer",
-    avatar: `https://api.dicebear.com/7.x/personas/svg?seed=3&backgroundColor=b6e3f4,c0aede,d1d4f9&backgroundType=gradientLinear&size=96`,
-    status: "busy",
-    lastMessage: "I've sent the report"
-  },
-  {
-    id: 4,
-    name: "Aissatou Bah",
-    role: "Community Manager",
-    avatar: `https://api.dicebear.com/7.x/personas/svg?seed=4&backgroundColor=b6e3f4,c0aede,d1d4f9&backgroundType=gradientLinear&size=96`,
-    status: "offline",
-    lastMessage: "Great work everyone!"
-  }
-];
 
 const ChatHub: React.FC = () => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
   const [messageInput, setMessageInput] = useState('');
-  const [messages, setMessages] = useState<ChatMessages>({});
-  const [users, setUsers] = useState<User[]>(initialUsers);
+  const [messages, setMessages] = useState<{ [key: number]: Message[] }>({});
 
-  const handleSendMessage = (e: React.FormEvent) => {
-    e.preventDefault();
+  const users: User[] = [
+    {
+      id: 1,
+      name: 'Ousmane Diallo',
+      role: 'Member',
+      avatar: '👨🏾',
+      status: 'online',
+      lastMessage: 'Thank you for the update!',
+      lastMessageTime: '10:30 AM'
+    },
+    {
+      id: 2,
+      name: 'Kadiatou Barry',
+      role: 'Admin',
+      avatar: '👩🏾',
+      status: 'offline',
+      lastMessage: 'I will review the documents.',
+      lastMessageTime: 'Yesterday'
+    },
+    {
+      id: 3,
+      name: 'Alpha Baldé',
+      role: 'Member',
+      avatar: '👨🏾',
+      status: 'online',
+      lastMessage: 'When is the next meeting?',
+      lastMessageTime: '2:15 PM'
+    }
+  ];
+
+  const filteredUsers = users.filter(user =>
+    user.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const handleSendMessage = () => {
     if (messageInput.trim() && selectedUser) {
       const newMessage: Message = {
-        id: (messages[selectedUser.id]?.length || 0) + 1,
-        text: messageInput,
+        id: Date.now(),
+        text: messageInput.trim(),
         sender: 'me',
         timestamp: new Date()
       };
-      
-      // Update messages
-      setMessages(prevMessages => ({
-        ...prevMessages,
-        [selectedUser.id]: [...(prevMessages[selectedUser.id] || []), newMessage]
+
+      setMessages(prev => ({
+        ...prev,
+        [selectedUser.id]: [...(prev[selectedUser.id] || []), newMessage]
       }));
 
-      // Update lastMessage for the selected user
-      setUsers(prevUsers => 
-        prevUsers.map(user => 
-          user.id === selectedUser.id 
-            ? { ...user, lastMessage: messageInput }
-            : user
-        )
+      // Update the user's last message
+      const updatedUsers = users.map(user => 
+        user.id === selectedUser.id 
+          ? { ...user, lastMessage: messageInput.trim(), lastMessageTime: 'Just now' }
+          : user
       );
 
       setMessageInput('');
     }
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  };
+
   const formatTime = (date: Date) => {
-    return date.toLocaleTimeString('en-US', { 
-      hour: 'numeric', 
+    return date.toLocaleTimeString('en-US', {
+      hour: 'numeric',
       minute: '2-digit',
-      hour12: true 
+      hour12: true
     });
   };
 
   return (
-    <>
-    <section className="no-chat-selected">
-    <h2>Welcome to ChatHub</h2>
-    <p>Select a user to start chatting</p>
-    </section>
-    <div className="chathub-container">
-      <div className="users-sidebar">
-        <div className="users-header">
-          <h2>Messages</h2>
-          <div className="search-box">
-            <input type="text" placeholder="Search users..." />
-          </div>
+    <div className="chat-container">
+      <div className="chat-sidebar">
+        <div className="search-box">
+          <input
+            type="text"
+            placeholder="Search members..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
         </div>
-        <div className="users-list">
-          {users.map(user => (
+        <div className="user-list">
+          {filteredUsers.map(user => (
             <div
               key={user.id}
               className={`user-item ${selectedUser?.id === user.id ? 'selected' : ''}`}
               onClick={() => setSelectedUser(user)}
             >
               <div className="user-avatar">
-                <img src={user.avatar} alt={user.name} />
+                <span>{user.avatar}</span>
                 <span className={`status-indicator ${user.status}`}></span>
               </div>
               <div className="user-info">
-                <h3>{user.name}</h3>
-                <p className="user-role">{user.role}</p>
+                <h4>{user.name}</h4>
+                <span className="user-role">{user.role}</span>
                 <p className="last-message">{user.lastMessage}</p>
               </div>
+              <span className="message-time">{user.lastMessageTime}</span>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="chat-area">
+      <div className="chat-main">
         {selectedUser ? (
           <>
             <div className="chat-header">
               <div className="chat-user-info">
-                <img src={selectedUser.avatar} alt={selectedUser.name} />
-                <div>
+                <div className="user-avatar">
+                  <span>{selectedUser.avatar}</span>
+                  <span className={`status-indicator ${selectedUser.status}`}></span>
+                </div>
+                <div className="user-details">
                   <h3>{selectedUser.name}</h3>
-                  <p>{selectedUser.role}</p>
+                  <span className={`status-text ${selectedUser.status}`}>
+                    {selectedUser.status === 'online' ? 'Online' : 'Offline'}
+                  </span>
                 </div>
               </div>
+              <div className="chat-actions">
+                <button className="action-btn">📹</button>
+                <button className="action-btn">📞</button>
+              </div>
             </div>
-            <div className="messages-container">
-              {messages[selectedUser.id]?.map(message => (
+
+            <div className="chat-messages">
+              {messages[selectedUser.id]?.map((message) => (
                 <div key={message.id} className={`message ${message.sender}`}>
                   <div className="message-content">
                     <p>{message.text}</p>
@@ -156,24 +163,56 @@ const ChatHub: React.FC = () => {
                 </div>
               ))}
             </div>
-            <form className="message-input" onSubmit={handleSendMessage}>
-              <input
-                type="text"
+
+            <div className="chat-input">
+              <textarea
+                placeholder="Type a message..."
                 value={messageInput}
                 onChange={(e) => setMessageInput(e.target.value)}
-                placeholder="Type a message..."
+                onKeyPress={handleKeyPress}
               />
-              <button type="submit">Send</button>
-            </form>
+              <div className="input-actions">
+                <button className="attach-btn">📷</button>
+                <button className="send-btn" onClick={handleSendMessage}>
+                  Send
+                </button>
+              </div>
+            </div>
           </>
         ) : (
-          <div className="no-chat-selected">
-            <p style={{paddingLeft:"20px"}}>Select a user to start chatting</p>
+          <div className="welcome-screen">
+            <div className="welcome-content">
+              <div className="welcome-icon">💬</div>
+              <h1>Welcome to ChatHub</h1>
+              <p>Connect with your team members through instant messaging and calls</p>
+              
+              <div className="welcome-features">
+                <div className="feature">
+                  <span className="feature-icon">💭</span>
+                  <span>Instant Messaging</span>
+                </div>
+                <div className="feature">
+                  <span className="feature-icon">📞</span>
+                  <span>Audio Calls</span>
+                </div>
+                <div className="feature">
+                  <span className="feature-icon">📹</span>
+                  <span>Video Calls</span>
+                </div>
+                <div className="feature">
+                  <span className="feature-icon">📷</span>
+                  <span>Share Media</span>
+                </div>
+              </div>
+              
+              <p className="welcome-tip">
+                Select a user from the sidebar to start chatting
+              </p>
+            </div>
           </div>
         )}
       </div>
     </div>
-    </>
   );
 };
 

@@ -13,16 +13,17 @@
 /* Any additional global styles that might be needed across the entire app can go here */
 
 .app {
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
+  padding-top: 64px; /* Increased from 48px to match navbar height */
 }
 
 .main-content {
-  flex: 1;
-  margin-left: 250px; /* Width of the sidebar */
-  background-color: #f8f9fa;
-  min-height: calc(100vh - 48px);
+  margin-left: 0;
+  padding-top: 24px;
+  transition: margin-left 0.3s ease;
+  min-height: calc(100vh - 64px); /* Adjusted to match new navbar height */
 }
 
 /* When not logged in, content takes full width */
@@ -152,7 +153,7 @@
 /* Main sidebar styles */
 .main-sidebar {
   position: fixed;
-  top: 48px;
+  top: 64px; /* Increased from 48px to match navbar height */
   left: 0;
   bottom: 0;
   width: 250px;
@@ -213,11 +214,41 @@
   text-decoration: none;
   transition: background-color 0.2s;
   white-space: nowrap;
+  position: relative;
 }
 
 .sidebar-link:hover {
   background-color: #E8F1E8;
   color: #2C5F2D;
+}
+
+.communication-icons {
+  position: absolute;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.sidebar-link:hover .communication-icons {
+  opacity: 1;
+}
+
+.communication-icons span {
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.communication-icons span:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.main-sidebar.closed .communication-icons {
+  display: none;
 }
 
 .sidebar-icon {
@@ -229,7 +260,7 @@
 
 .main-content {
   margin-left: 0;
-  padding-top: 48px;
+  padding-top: 18px;
   transition: margin-left 0.3s ease;
   min-height: calc(100vh - 48px);
 }
@@ -255,4 +286,131 @@
   .main-content.with-sidebar-closed {
     margin-left: 0;
   }
+}
+
+.contributions-list {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.contribution-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s;
+}
+
+.contribution-item:last-child {
+  border-bottom: none;
+}
+
+.contribution-item:hover {
+  background-color: #f8f9fa;
+}
+
+.contribution-info h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.contribution-date {
+  display: block;
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.contribution-amount {
+  text-align: right;
+}
+
+.contribution-amount .amount {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2C5F2D;
+}
+
+.contribution-amount .status {
+  display: block;
+  font-size: 0.875rem;
+  color: #22c55e;
+  margin-top: 0.25rem;
+}
+
+/* Member Contributions Styles */
+.member-contributions {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.member-contribution-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #edf2f7;
+  transition: background-color 0.2s;
+}
+
+.member-contribution-item:last-child {
+  border-bottom: none;
+}
+
+.member-contribution-item:hover {
+  background-color: #f7fafc;
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.member-name {
+  font-weight: 500;
+  color: #1a202c;
+  font-size: 0.95rem;
+}
+
+.contribution-date {
+  color: #718096;
+  font-size: 0.875rem;
+}
+
+.contribution-details {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contribution-amount {
+  font-weight: 600;
+  color: #2C5F2D;
+  font-size: 0.95rem;
+}
+
+.contribution-status {
+  color: #48bb78;
+  font-size: 0.875rem;
+}
+
+/* Progress bar colors based on completion */
+.progress-bar .progress.low {
+  background-color: #ef4444;  /* red */
+}
+
+.progress-bar .progress.medium {
+  background-color: #f59e0b;  /* yellow/amber */
+}
+
+.progress-bar .progress.high {
+  background-color: #22c55e;  /* green */
 }
