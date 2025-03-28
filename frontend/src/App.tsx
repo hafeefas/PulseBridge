@@ -92,35 +92,35 @@ function App() {
             <nav className="sidebar-nav">
               <Link to="/people" className="sidebar-link">
                 <span className="sidebar-icon">👥</span>
-                <span className="sidebar-text">People</span>
+                <span className="sidebar-text">Members</span>
               </Link>
               <Link to="/chat" className="sidebar-link">
                 <span className="sidebar-icon">💬</span>
-                <span className="sidebar-text">Chat</span>
+                <span className="sidebar-text">ChatHub</span>
+              </Link>
+              <Link to="/finance" className="sidebar-link">
+                <span className="sidebar-icon">💰</span>
+                <span className="sidebar-text">Financial Tracker</span>
               </Link>
               <Link to="/calendar" className="sidebar-link">
                 <span className="sidebar-icon">📅</span>
                 <span className="sidebar-text">Calendar</span>
               </Link>
-              {/* <Link to="/checking-account" className="sidebar-link">
-                <span className="sidebar-icon">🏦</span>
-                Checking Account
-              </Link> */}
               <Link to="/forms" className="sidebar-link">
                 <span className="sidebar-icon">📄</span>
                 <span className="sidebar-text">Forms and Policies</span>
               </Link>
-              {/* <Link to="/benefits" className="sidebar-link">
+              <Link to="/benefits" className="sidebar-link">
                 <span className="sidebar-icon">✨</span>
-                Benefits
-              </Link> */}
-              <Link to="/help" className="sidebar-link">
-                <span className="sidebar-icon">❓</span>
-                <span className="sidebar-text">Help and Contact</span>
+                <span className="sidebar-text">Benefits</span>
               </Link>
               <Link to="/settings" className="sidebar-link">
                 <span className="sidebar-icon">⚙️</span>
                 <span className="sidebar-text">Settings</span>
+              </Link>
+              <Link to="/help" className="sidebar-link">
+                <span className="sidebar-icon">❓</span>
+                <span className="sidebar-text">Help and Contact</span>
               </Link>
             </nav>
           </div>
@@ -160,7 +160,9 @@ function App() {
               </ProtectedRoute>
             } />
             <Route path="/benefits" element={
-              <Benefits />
+              <ProtectedRoute isLoggedIn={isLoggedIn}>
+                <Benefits />
+              </ProtectedRoute>
             } />
             <Route path="/forms" element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
@@ -184,7 +186,7 @@ function App() {
         {!isLoggedIn && <Footer />}
       </div>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

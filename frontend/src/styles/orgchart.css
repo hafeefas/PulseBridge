@@ -2,8 +2,8 @@
   padding: 2rem;
   background: #f8f9fa;
   min-height: calc(100vh - 64px);
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .org-header {
@@ -52,14 +52,26 @@
   align-items: flex-start;
 }
 
+.org-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
 .org-tree {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  width: fit-content;
-  padding: 1rem;
-  position: relative;
+  width: 100%;
+  padding: 3rem 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  min-width: min-content;
 }
 
 /* Connecting lines */
@@ -67,8 +79,10 @@
   position: relative;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem;
   width: 100%;
+  min-width: max-content;
+  padding: 0 2rem;
 }
 
 .org-level::before {
@@ -113,7 +127,8 @@
   background: white;
   border: 1px solid #eee;
   border-radius: 12px;
-  width: 260px;
+  width: 280px;
+  flex-shrink: 0;
   transition: all 0.2s;
   cursor: pointer;
 }
@@ -164,31 +179,77 @@
 }
 
 /* Level-specific styles */
-.president-level {
-  margin-bottom: 1rem;
-}
-
 .executives-level {
   margin-bottom: 1rem;
+  width: 100%;
+  justify-content: center;
+  gap: 4rem;
 }
 
 .directors-level {
   margin-bottom: 1rem;
+  width: 100%;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.managers-level {
+  width: 100%;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.members-level {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.members-level .org-branch {
+  display: flex;
+  justify-content: center;
+}
+
+.members-level .org-card {
+  width: 200px;
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.members-level .org-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive adjustments */
-@media (max-width: 1200px) {
-  .org-container {
-    padding: 1.5rem;
-    margin: 0 1rem;
+@media (max-width: 1600px) {
+  .org-tree {
+    padding: 3rem 0.5rem;
   }
   
-  .org-tree {
-    gap: 2.5rem;
+  .org-level {
+    gap: 2rem;
   }
   
   .org-card {
+    width: 260px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .org-card {
     width: 240px;
+  }
+  
+  .executives-level,
+  .directors-level,
+  .managers-level {
+    gap: 2rem;
   }
 }
 
@@ -208,4 +269,77 @@
     width: 100%;
     justify-content: center;
   }
+}
+
+.general-members-section {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.general-members-section h2 {
+  text-align: center;
+  color: #2C5F2D;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.member-card {
+  width: 100%;
+  max-width: 260px;
+}
+
+.member-card .org-card {
+  width: 100%;
+}
+
+/* Remove the connecting lines for member cards */
+.member-card::before,
+.member-card::after {
+  display: none;
+}
+
+.more-members {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 1rem;
+}
+
+.more-members p {
+  color: #666;
+  font-size: 1.1rem;
+  font-style: italic;
+  position: relative;
+  display: inline-block;
+}
+
+.more-members p::before,
+.more-members p::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 1px;
+  background: #ddd;
+}
+
+.more-members p::before {
+  right: 100%;
+  margin-right: 15px;
+}
+
+.more-members p::after {
+  left: 100%;
+  margin-left: 15px;
 } 

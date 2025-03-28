@@ -1,4 +1,3 @@
-
 const OrgChart = () => {
   const getAvatarUrl = (id: number) => {
     // Using DiceBear API with personas style for professional-looking avatars
@@ -35,7 +34,7 @@ const OrgChart = () => {
         </button>
       </div>
 
-      <div className="org-container">
+      <div className="org-content">
         <div className="org-tree">
           {/* President Level */}
           <div className="org-level president-level">
@@ -78,6 +77,82 @@ const OrgChart = () => {
             </div>
             <div className="org-branch">
               {renderPersonCard("Djenebou Diarra", "Member Services Manager", 10)}
+            </div>
+            <div className="org-branch">
+              {renderPersonCard("Aminata Bah", "Events Coordinator", 11)}
+            </div>
+            <div className="org-branch">
+              {renderPersonCard("Moussa Camara", "Community Liaison", 12)}
+            </div>
+          </div>
+        </div>
+
+        {/* General Members Section */}
+        <div className="general-members-section">
+          <h2>General Members</h2>
+          <div className="members-grid">
+            <div className="member-card">
+              {renderPersonCard("Mariama Sow", "Member", 13)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Alpha Barry", "Member", 14)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Hawa Diallo", "Member", 15)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Boubacar Sylla", "Member", 16)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Fatoumata Bah", "Member", 17)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Mamadou Sow", "Member", 18)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Aissatou Diallo", "Member", 19)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Ibrahim Bah", "Member", 20)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Aminata Keita", "Member", 21)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Ousmane Diallo", "Member", 22)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Kadiatou Barry", "Member", 23)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Souleymane Camara", "Member", 24)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Fanta Touré", "Member", 25)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Moussa Baldé", "Member", 26)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Mariam Diallo", "Member", 27)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Ibrahima Sow", "Member", 28)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Aissata Bah", "Member", 29)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Thierno Barry", "Member", 30)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Fatou Sylla", "Member", 31)}
+            </div>
+            <div className="member-card">
+              {renderPersonCard("Mamadou Baldé", "Member", 32)}
+            </div>
+            <div className="more-members">
+              <p>and <strong>hundreds</strong> more!</p>
             </div>
           </div>
         </div>
