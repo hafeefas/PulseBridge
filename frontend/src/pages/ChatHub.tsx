@@ -71,14 +71,6 @@ const ChatHub: React.FC = () => {
         ...prev,
         [selectedUser.id]: [...(prev[selectedUser.id] || []), newMessage]
       }));
-
-      // Update the user's last message
-      const updatedUsers = users.map(user => 
-        user.id === selectedUser.id 
-          ? { ...user, lastMessage: messageInput.trim(), lastMessageTime: 'Just now' }
-          : user
-      );
-
       setMessageInput('');
     }
   };
